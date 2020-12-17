@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import logo from './logo.png';
+import { Switch, Route } from "react-router-dom";
 import  './App.css';
-import Form from './Form'
+import Welcome from './Welcome';
+import Student from './Student';
+import Employee from './Employee';
 
 class App extends Component {
  
@@ -11,22 +14,12 @@ class App extends Component {
              <header className = "App-header">
                  <img src={logo} className= "image" alt="logo"/>
           
-          Enter the details here
-          
-               <Form />
-          <br/>
-          <br/>
-          
-              
-                
-              <a
-                className="App-link"
-                href="http://examination.igdtuw.ac.in/Examination_v2/users/login"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Proceed towards logIn
-              </a>
+                 <Switch>
+            <Route exact path="/StudentLogin" component={Student} />
+            <Route exact path="/" component={Welcome} />
+            <Route exact path="/EmployeeLogin" component={Employee} />
+
+          </Switch>
               </header>
           </div>
   );
